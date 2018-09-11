@@ -23,7 +23,7 @@
   
   <body>
     <!--  Start Hero Section  -->
-    <section class="hero">
+    <section class="hero" id="toptop">
       <header>
         <div class="row">
           
@@ -45,13 +45,13 @@
             <!--    Start Navigation Menu    -->
             <section class="top-bar-section" id="mean_nav">
               <ul class="right">
-                <li><a href="#services">services</a></li>
+                <li><a href="#services" class="pagego">services</a></li>
                 <li><a href="testimonials.php" class="pagego">Testimonials</a></li>
                 <li><a href="aboutken.php" class="pagego">About Ken</a></li>
                 <li><a href="articles.php" class="pagego">Articles</a></li>
                 <li><a href="events.php" class="pagego">Events</a></li>
                 <li><a href="blog.php" class="pagego">BLOG</a></li>
-                <li><a href="#connect">Connect</a></li>
+                <li><a href="#connect" class="pagego">Connect</a></li>
               </ul>
             </section>
             <!--    End Navigation Menu    -->
@@ -65,7 +65,7 @@
         <div class="row">
           <h1 class="mean_cap">Service Management</hA>
           <h2 class="sub_cap">Coaching Services</h2>
-          <a href="#" class="btn_details"><span>See Coaching Plans</span> <!-- <img src="img/btn_arrow.png" alt="" src="" class="arrow"> --></a>
+<!--           <a href="#" class="btn_details"><span>See Coaching Plans</span> <!-- <img src="img/btn_arrow.png" alt="" src="" class="arrow"> </a>-->
         </div>
       </section>
       <!--    End Hero Caption    -->
@@ -94,44 +94,51 @@
 		  $service3 = 'For companies that want to address a specific challenge in their departments, I will evaluate the issue and provide suggestions on how to overcome the problem.  This service is available on a per issue basis, and the rate will include follow up to make sure that the recommendations resolved the concern.  This service will not normally require an on-site visit making it an affordable option for a specific issue.';
 		  
 		  $service4 = 'I will be offering a comprehensive training program for service supervisors, service managers, and directors of service helping them become highly skilled in their roles.  This training will be unique in that it feature live lecture and discussion over the internet.  The classes will typically meet twice a week for 1 hour.  There will be group assignments and assigned reading. The advantage to this approach is two-fold; first the students will not have to travel and can continue to handle their daily responsibilities in their department.  Second, the dealership will save the cost of travel and meals while they are in class. Total class time is significantly than the traditional 3 to 4 day course.
-		  A written report at the end of the class outlines the students’ performance, participation, and a final grade for the course.  A separate course for each position will be offered.  Typically, the classes will be taught sequentially so that a student can take all three in a row, and there will be a tuition discount for multiple classes.';
+		  A written report at the end of the class outlines the students’ performance, participation, and a final grade for the course.  A separate course for each position will be offered.  Typically, the classes will be taught sequentially so that a student can take all three in a row, and there will be a tuition discount for multiple classes.
+		  <hr />
+		  <a href="training.php" class="button secondary">More</a>
+		  ';
 	  ?>
 	  
       <!--    Start Services List    -->
       <div class="row services_list">
         <div class="small-12 medium-3 large-3 columns">
-          <img src="img/icons/kedmonds_icons_02.png" alt="" title="" class="serv_icon"/>
-          <h2 class="title">Strategy and Planning</h2>
-          <p><?php echo $service1; ?></p>
+          <img src="img/icons/strategyIcon.png" alt="" title="" class="serv_icon"/>
+<!--           <h2 class="title">Strategy and Planning</h2> -->
+          <p class="text-justify"><?php echo $service1; ?></p>
         </div>
 
        
       <div class="small-12 medium-3 large-3 columns">
-          <img src="img/icons/kedmonds_icons_17.png" alt="" title="" class="serv_icon"/>
-          <h2 class="title">Support</h2>
-          <p><?php echo $service3; ?></p>
+          <img src="img/icons/supportIcon.png" alt="" title="" class="serv_icon"/>
+<!--           <h2 class="title">Support</h2> -->
+          <p class="text-justify"><?php echo $service3; ?></p>
         </div>
 
 
-	   <div class="small-12 medium-3 large-3 columns">
-          <img src="img/icons/kedmonds_icons_05.png" alt="" title="" class="serv_icon"/>
-          <h2 class="title">Consulting</h2>
-          <p><?php echo $service2; ?></p>
-        </div>
+	   
 
      
 
         <div class="small-12 medium-3 large-3 columns">
-          <img src="img/icons/kedmonds_icons_11.png" alt="" title="" class="serv_icon"/>
-          <h2 class="title">Training</h2>
-          <p><?php echo $service4; ?></p>
+          <a href="training.php"><img src="img/icons/trainingIcon.png" alt="" title="" class="serv_icon"/></a>
+<!--           <h2 class="title">Training</h2> -->
+          <p class="text-justify"><?php echo $service4; ?></p>
         </div>
+        
+        <div class="small-12 medium-3 large-3 columns">
+          <img src="img/icons/consultingIcon.png" alt="" title="" class="serv_icon"/>
+<!--           <h2 class="title">Consulting</h2> -->
+          <p class="text-justify"><?php echo $service2; ?></p>
+        </div>
+        
+        
       </div>
       <!--    End Services List    -->
 
       <!--    Start Button    -->
       <div class="btn_holder">
-        <a href="#" class="btn_fancy">
+        <a href="https://www.facebook.com/kedmonds.biz.7" class="btn_fancy">
           <div class="solid_layer"></div>
           <div class="border_layer"></div>
           <div class="text_layer">Get In Touch</div>
@@ -240,7 +247,7 @@
         <!--    End CTA Titles    -->
 
         <!--    Start Button    -->
-        <a href="#" class="btn_fancy">
+        <a href="https://www.facebook.com/kedmonds.biz.7" class="btn_fancy">
           <div class="solid_layer"></div>
           <div class="border_layer"></div>
           <div class="text_layer">Get It Now!</div>
@@ -258,7 +265,7 @@
 
 
     <!--  Start Footer Section  -->
-    <footer>
+    <footer id="connect">
       <div class="row">
         
         <!--    Start Copyrights    -->
@@ -306,7 +313,7 @@
     <!--  End Footer Section  -->
 
     <!--    Start Back To Top    -->
-    <a href="#" class="btn_fancy" id="back_top">
+    <a href="#toptop" class="btn_fancy" id="back_top">
       <div class="solid_layer"></div>
       <div class="border_layer"></div>
       <div class="text_layer"><img src="img/top_arrow.png" alt="Back to top" title="" class="top_arrow"></div>

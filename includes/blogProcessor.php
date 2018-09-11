@@ -16,6 +16,10 @@ if(!empty($_POST['sel_pagetopost'])){
 $wheretopost = $_POST['sel_pagetopost'];
 }
 
+if(!empty($_POST['pageLink'])){
+	$pageLink = $_POST['pageLink'];
+}
+
 
 if(!empty($text)){
 
@@ -30,9 +34,23 @@ if(!empty($text)){
 }elseif(!empty($title)){
 	$query = mysqli_query($con, "SELECT * FROM blog WHERE blog_title='$title'");
 	while($b = mysqli_fetch_array($query)){
-		echo '<h3>'.$b['blog_title'].'</h3>';
+		echo '<div id="toptoptop"></div>';
+		echo '<input type="hidden" id="copyTarget"  value="'.$pageLink.'?article='.$title.'">';
+		echo '<a href="javascript:void(0)" class="copthisbtn right" id="copyButton" onclick="copy(\'#copyTarget\'); return false; "><i class="fa fa-share-alt fa-lg" aria-hidden="true" id></i></a>';
+		
+		echo '<h3>'.$b['blog_title'].' </h3>';
+		
 		echo $b['blog_txt'];
 		
+		echo '<br />';
+		
+		
+
+	
+		
+		
+		
+				
 	}	
 }elseif(!empty($_POST['del'])){
 	
@@ -47,3 +65,15 @@ echo mysqli_error($con);
 	
 	
 ?>
+
+
+ <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/touchSwipe.min.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript" src="js/foundation.min.js"></script>
+    <script type="text/javascript" src="js/foundation/foundation.topbar.js"></script>
+    <script type="text/javascript" src="js/carouFredSel.js"></script>
+    <script type="text/javascript" src="js/scrollTo.js"></script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/dropzone.js"></script>

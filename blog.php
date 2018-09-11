@@ -1,4 +1,9 @@
-<?php include 'includes/ewp.php';?>
+<?php include 'includes/ewp.php';
+	
+	
+	
+	
+?>
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -14,11 +19,11 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/foundation.min.css" />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="FONTAWESOME/css/font-awesome.min.css"/>
 
     <!--    Javascript files are placed before </body>    -->
     
-    <script src="tinymce/js/tinymce/tinymce.min.js"></script>
-	<script>tinymce.init({ selector:'textarea' });</script>
+   
 	
 	
   </head>
@@ -63,16 +68,20 @@
       <div class="row">
 	  
 	  <?php 
-		  
+		 
+		  $liveArticles = mysqli_query($con,"SELECT * FROM blog WHERE wheretopost='blog'");
 		  $getArticles = mysqli_query($con,"SELECT * FROM blog WHERE wheretopost='blog'");
+		 
 		  echo '<div class="large-4 columns">';  
 		  
-		  echo '<ul class="side-nav">
-		  <h5>Blog Articles</h5>';
+		  echo '<h3>Blog</h3>';
 		  
+		  echo '<ul id="listofarticles" class="side-nav">';
+		  
+		  	$no = 1;
 		    while($a = mysqli_fetch_array($getArticles)){
-		
-		  	echo '<li><a class="blogGet" href="">'.$a['blog_title'].'</a></li>';	  
+			
+		  	echo '<li id="art_'.$no++.'x"> <a class="blogGet" href="">'.$a['blog_title'].'</a></li>';	  
 			
 			}
 		 
@@ -82,9 +91,10 @@
 		  </div>';
 		  
 		   echo '<div id="blogTitle" class="large-8 columns">';
-
+		  
 		   
-		   echo '</div>';
+		
+			echo '</div>';
 	  ?>
 	      
 	  
@@ -113,8 +123,8 @@
         <!--    End Copyrights    -->
 
 
-       <?php include 'includes/socialMediaPlugs.php';?>
-       
+         <?php include 'includes/socialMediaPlugs.php';?>
+      
       </div>
     </footer>
     <!--  End Footer Section  -->
@@ -134,6 +144,44 @@
     <!--    Javascript Files    -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
+    
+    <script>
+	
+	$(document).ready(function(){
+		var first_li = $('ul#listofarticles li').first().children('a').click();
+		$(first_li).parent().attr('class','active');
+		$(first_li).parent().css({'background':'#4d2665'});
+		$('.blogGet').css('color','#4d2665');
+		$(first_li).css({'color':'#fff'});
+		
+		
+		
+		$(document).on('click','.blogGet',function(){
+		$('.blogGet').parent().attr('class','x');
+		$('.blogGet').parent().css('background','');		
+		$('.blogGet').css('color','#4d2665');
+		$(this).css('color','#fff');
+		$(this).parent().attr('class','active');
+		$(this).parent().css('background','#4d2665');
+		
+
+		
+		});
+		
+	});
+	
+	
+		
+	
+	</script>
+	
+	
+	
+		
+	<?php include('includes/loadGetBlog.php');?>
+		
+	    
+    
     <script type="text/javascript" src="js/touchSwipe.min.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
     <script type="text/javascript" src="js/foundation.min.js"></script>
@@ -147,5 +195,7 @@
 
   </body>
 </html>
+
+
 
 

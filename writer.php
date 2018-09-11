@@ -26,7 +26,9 @@
   plugins: 'print preview fullpage  searchreplace autolink directionality  visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount  imagetools   contextmenu colorpicker textpattern help',
   toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat',
   image_advtab: true,
-  
+  file_browser_callback: function(field_name, url, type, win) {
+    win.document.getElementById(field_name).value = 'my browser value';
+  },
   content_css: [
     '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
     '//www.tinymce.com/css/codepen.min.css'
@@ -92,6 +94,10 @@
 			      <option value="blog">Blog</option>
 			      <option value="articles">Articles</option>
 			      <option value="event">Event</option>
+			      <option value="px_event">Upcomming Event</option>
+			      <option value="testimonials">Testimonials</option>
+			      <option value="Bio">Bio</option>
+			      <option value="training">Training</option>
 		      </select>
 		      </label>	
 		        </div> 
@@ -130,6 +136,7 @@
 			  <thead>
 			    <tr>
 			      <th>Blog Title</th>
+			      <th>WebPage</th>
 			      <th>Edit</th>
 			      <th class="right">Delete</th>
 			    </tr>
@@ -138,13 +145,14 @@
 	  
 	  <?php 
 		  
-		  $getArticles = mysqli_query($con,"SELECT * FROM blog");
+		  $getArticles = mysqli_query($con,"SELECT * FROM blog ORDER BY wheretopost");
 		  
 		  while($a = mysqli_fetch_array($getArticles)){
 			  
 			  echo '
 			    <tr>
 			      <td>'.$a['blog_title'].'</td>
+			      <td>'.$a['wheretopost'].'</td>
 			      <td><input type="hidden" id="blogTitle" value="'.$a['blog_title'].'"><a class="large-12 columns editthisarticle button tiny" id="'.$a['blog_id'].'">Update</a></td>
 			      <td><a class="deletethisitem button right alert tiny" id="'.$a['blog_id'].'">Delete</a></td>
 			    </tr>';

@@ -1,3 +1,10 @@
+<?php include 'includes/ewp.php';
+	
+	
+	
+	
+?>
+
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
@@ -12,8 +19,13 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/foundation.min.css" />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="FONTAWESOME/css/font-awesome.min.css"/>
 
     <!--    Javascript files are placed before </body>    -->
+    
+   
+	
+	
   </head>
   
   <body>
@@ -50,40 +62,52 @@
         </div>
       </header>
       
-      <hr />
+            
+           <hr / style="border:0px;">
+      
       <div class="row">
-        
-        <!--    Start Articles    -->
-        <div class="small-12 medium-4 large-12 columns">
-	        
-	        <div class="large-4 columns">
-		        <h2>Ken Edmonds</h2>
-				<h3>Bio.</h3>
-	        </div>
+	  
+	  <?php 
+		 
+		  $liveArticles = mysqli_query($con,"SELECT * FROM blog WHERE wheretopost='bio'");
+		  $getArticles = mysqli_query($con,"SELECT * FROM blog WHERE wheretopost='bio'");
+		 
+		  echo '<div class="large-4 columns">';  
+		  
+		  echo '<h3>About Ken</h3>';
+		  
+		  echo '<ul id="listofarticles" class="side-nav">';
+		  
+		  	$no = 1;
+		    while($a = mysqli_fetch_array($getArticles)){
 			
-			<div class="large-8 columns" id="articles_here">
+		  	echo '<li id="art_'.$no++.'x"> <a class="blogGet" href="">'.$a['blog_title'].'</a></li>';	  
 			
-				
-
-<p>My background includes 10 years in the USAF, where I attended technical schools in basic electronics, analog to digital data conversion and mainframe computer repair.  While in the Air Force, I attended NCO Leadership School.  I also worked for 8 years as an air traffic controller, and during that time participated in several leadership training programs.</p>
-
-<p>After working for the FAA, I founded a company that remanufactured toner cartridges and sold supplies.  We eventually moved into the copier industry and became and Toshiba dealer.  During these years, there wasn’t a position in the company that I didn’t work in and with.  It was while having my own company that I began to seriously study the service management process and identify methods that worked and those that don’t.</p>
-After several years we sold the company, and I moved into service management full time.  I worked for three different dealers and achieved success in improving both the processes and the results in all three companies.  </p>
-
-<p>I then went to work for the manufacturer, first at Sharp and then with Konica Minolta Business Solutions.  I worked for both companies in the roll of a problem solver, both in technical issues and in service management issues as well.  In my almost 16 years in that roll, I have been able to observe service management policies and practices in companies from the smallest, to among the largest in the US.</p>  
-
-<p>Several of the companies I worked with went through major transitions in management style.  During these transitions, I was able to observe and for some, shape the outcome of these transitions.  With exposure to over 40 companies and intimate knowledge of how they manage service, what they measure, and how they motivate the departments I have been able to identify some core principles that relate directly to their success.</p>
-
-<p>In several cases, I also worked with the dealer principals as well on improving their business practices.  One focus that I developed was on strengthening the management team and ways to accomplish this.  In many cases, the service profitability is hampered by other groups in the organization.  Identifying and finding solutions is a key part of helping a dealership become better.</p>
-
-			
-			</div>
-			
-		</div>
+			}
+		 
+		  echo '</ul>
+		  
+		  
+		  </div>';
+		  
+		   echo '<div id="blogTitle" class="large-8 columns">';
+		  
+		   
+		
+			echo '</div>';
+	  ?>
+	      
+	  
+	 	  
+	  
+	  </div>
+	  
+	  
+      <hr / style="border:0px;">    
       
-      </div>
       
-          <!--  Start Footer Section  -->
+      
+                <!--  Start Footer Section  -->
     <footer>
       <div class="row">
         
@@ -99,31 +123,8 @@ After several years we sold the company, and I moved into service management ful
         <!--    End Copyrights    -->
 
 
-        <div class="small-12 medium-8 large-8 columns">
-          <div class="contact_details right">
-            <nav class="social">
-              <ul class="no-bullet">
-                <li><a href="http://facebook.com/kedmonds" target="_blank">Facebook</a></li>
-                <li><a href="http://instagram.com/kedmonds" target="_blank">Instagram</a></li>
-                <li><a href="http://twitter.com/kedmonds" target="_blank">Twitter</a></li>
-                <li><a href="http://plus.google.com/kedmonds" target="_blank">Google+</a></li>
-              </ul>
-            </nav>
-
-            <div class="contact">
-              <div class="details">
-                <p>Ken@kedmonds.biz</p>
-                <p>365-653-3699</p>
-              </div>
-
-<!--
-              <p class="adress">550 Hershell Hollow Road
-              Johnson City, TN 37615</p>
--->
-            </div>
-          </div>
-        </div>
-
+         <?php include 'includes/socialMediaPlugs.php';?>
+      
       </div>
     </footer>
     <!--  End Footer Section  -->
@@ -143,6 +144,44 @@ After several years we sold the company, and I moved into service management ful
     <!--    Javascript Files    -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
+    
+    <script>
+	
+	$(document).ready(function(){
+		var first_li = $('ul#listofarticles li').first().children('a').click();
+		$(first_li).parent().attr('class','active');
+		$(first_li).parent().css({'background':'#4d2665'});
+		$('.blogGet').css('color','#4d2665');
+		$(first_li).css({'color':'#fff'});
+		
+		
+		
+		$(document).on('click','.blogGet',function(){
+		$('.blogGet').parent().attr('class','x');
+		$('.blogGet').parent().css('background','');		
+		$('.blogGet').css('color','#4d2665');
+		$(this).css('color','#fff');
+		$(this).parent().attr('class','active');
+		$(this).parent().css('background','#4d2665');
+		
+
+		
+		});
+		
+	});
+	
+	
+		
+	
+	</script>
+	
+	
+	
+		
+	<?php include('includes/loadGetBlog.php');?>
+		
+	    
+    
     <script type="text/javascript" src="js/touchSwipe.min.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
     <script type="text/javascript" src="js/foundation.min.js"></script>
@@ -152,7 +191,11 @@ After several years we sold the company, and I moved into service management ful
     <script type="text/javascript" src="js/map.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
     
-    <?php include 'includes/pagebase.php'; ?>
+    <?php //include 'includes/pagebase.php'; ?>
 
   </body>
 </html>
+
+
+
+

@@ -79,8 +79,8 @@ $(document).ready(function(){
     /*    Back to top button    */
     var back_top = $('#back_top');
 
-    back_top.click(function(e){
-    	e.preventDefault();
+    back_top.click(function(){
+    	
     	scrollTo(0, 900, 'easeInOutCubic');
     	
     });
@@ -106,7 +106,7 @@ $(document).ready(function(){
 		
 		e.preventDefault();
 		
-		$.post('includes/blogProcessor.php',{title:title}, function(data){
+		$.post('includes/blogProcessor.php',{title:title,pageLink:pageLink}, function(data){
 		$('#blogTitle').html(data);	
 		
 	
@@ -131,3 +131,39 @@ $(document).ready(function(){
 		
 		 
 	 });
+	 
+
+	  $(document).on('click','.copthisbtn', function(e){
+		  
+		  e.preventDefault();
+	
+		 $(this).html('<button class="button success tiny radius">Link Copied <i class="fa fa-check" aria-hidden="true"></i></button>');
+		 $(this).css("color","white");
+		 
+		 return false;
+	 
+	 });
+
+	 
+	 //Copy to ClipBoard
+	 
+
+  
+	 
+
+	function copy(selector){
+	
+
+  var $temp = $("<a>");
+  $("body").append($temp);
+  $temp.attr("contenteditable", true)
+       .html($(selector).val()).select()
+       .on("focus", function() { document.execCommand('selectAll',false,null) })
+       .focus();
+
+  document.execCommand("copy");
+  $temp.remove();
+  
+  return false;
+  
+}

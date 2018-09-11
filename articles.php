@@ -1,4 +1,9 @@
-<?php include 'includes/ewp.php';?>
+<?php include 'includes/ewp.php';
+	
+	
+	
+	
+?>
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -14,6 +19,7 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/foundation.min.css" />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="FONTAWESOME/css/font-awesome.min.css"/>
 
     <!--    Javascript files are placed before </body>    -->
     
@@ -164,10 +170,17 @@
 		
 	});
 	
+	
 		
 	
 	</script>
-    
+	
+	
+	
+		
+	<?php include('includes/loadGetBlog.php');?>
+		
+	    
     
     <script type="text/javascript" src="js/touchSwipe.min.js"></script>
     <script type="text/javascript" src="js/easing.js"></script>
