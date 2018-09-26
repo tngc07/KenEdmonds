@@ -1,0 +1,79 @@
+.highlight-clean {
+  color: #ffffff;
+  background-color: #382956;
+  padding: 50px 0;
+}
+
+.highlight-clean p {
+  color: #afb4b7;
+}
+
+.highlight-clean h2 {
+  font-weight: bold;
+  margin-bottom: 25px;
+  line-height: 1.5;
+  padding-top: 0;
+  margin-top: 0;
+  color: inherit;
+}
+
+.highlight-clean .intro {
+  font-size: 20px;
+  max-width: 500px;
+  margin: 0 auto 25px;
+}
+
+.highlight-clean .buttons {
+  text-align: center;
+}
+
+.highlight-clean .buttons .btn {
+  padding: 16px 32px;
+  margin: 6px;
+  border: none;
+  background: none;
+  box-shadow: none;
+  text-shadow: none;
+  opacity: 0.9;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  line-height: 1;
+  outline: none;
+  background-color: #ddd;
+}
+
+.highlight-clean .buttons .btn:hover {
+  opacity: 1;
+}
+
+.highlight-clean .buttons .btn:active {
+  transform: translateY(1px);
+}
+
+#30years {
+}
+
+.mod-titleh1 {
+  color: rgb(21,21,21);
+  font-weight: 600;
+}
+
+.modp {
+  font-weight: bold;
+}
+
+.modcol {
+  background-color: rgba(91,90,90,0.63);
+  border-radius: 25%;
+  padding: 25px;
+  margin-right: 2px;
+  margin-left: 2px;
+}
+
+#modhero p {
+  color: rgb(255,255,255);
+  font-size: 29px;
+}
+
